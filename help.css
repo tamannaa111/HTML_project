@@ -1,0 +1,240 @@
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #071093;
+}
+
+/* Header */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 80px; /* Reduced padding */
+    background-color: #e3e6f3;
+    box-shadow: 0 2px 10px rgba(139, 16, 16, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 80px; /* Smaller height */
+}
+
+.logo {
+    width: 100px;        /* Adjust as needed */
+    height: 100px;       /* Must be equal to width for a perfect circle */
+    border-radius: 50%;  /* Makes it round */
+    object-fit: cover;   /* Ensures it fills the shape nicely */
+}
+.logo {
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* Navigation */
+#header #navbar {
+    list-style: none;
+    display: flex;
+}
+
+#header #navbar li {
+    margin-right: 40px;
+}
+
+#header #navbar a {
+    text-decoration: none;
+    color: #060707;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#header #navbar .active {
+    color: #18792e;
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 70px;
+    background-color: #0b1c2dd8;
+    color: white;
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 15px;
+}
+
+/* Help Section */
+.help-section {
+    padding: 50px 100px;
+    background-color: #2a3fc719;
+}
+
+.help-section h2 {
+    font-size: 35px;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.help-section ul {
+    list-style: none;
+}
+
+.help-section ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.help-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.help-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.help-form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+.help-form input,
+.help-form textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+.help-form button {
+    padding: 12px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.help-form button:hover {
+    background-color: #d35400;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #34495e;
+    color: white;
+    font-size: 14px;
+}
+
+/* Mobile Navigation */
+#mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #header #navbar {
+        display: none;
+    }
+
+    #mobile {
+        display: block;
+    }
+
+    #navbar.active {
+        display: block;
+    }
+}
+/*----------------footer--------------------*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+footer .imglogo{
+    height: 70px;
+    width: 100px;
+    margin-bottom: 30px;
+}
+footer h4{
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+footer a{
+    font-size: 13px;
+    text-decoration: none;
+    color: #f0e9e9;
+    margin-bottom: 10px;
+}
+footer .follow{
+    margin-top: 20px;
+}
+footer .follow i{
+    font-size: 23px;
+    color: #32a3ff;
+    padding-right: 4px;
+    cursor: pointer;
+}
+footer .follow i:nth-child(2){
+    color: #0022e6;
+}
+footer .follow i:nth-child(3){
+    color: #ee34ff;
+}
+footer .follow i:nth-child(4){
+    color: #e60000;
+}
+footer .follow i:nth-child(5){
+    color: #00e600;
+}
+footer .follow i:nth-child(6){
+    color: #06b400;
+}
+footer .install .row img{
+    width: 200px;
+    height: 55px;
+    border: 1px solid #088178;
+    border-radius: 6px;
+}
+footer .install img{
+    margin: 10px 0 15px 0;
+}
+footer .follow i:hover,
+footer a:hover{
+    color: #020602;
+}
+footer .copyRight{
+    width: 100%;
+    text-align: center;
+}
