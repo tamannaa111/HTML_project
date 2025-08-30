@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Validation</h2>
+<p>For a number less than 570 or greater than 2023, an error msg will
+showup.</p>
+
+<div id="notif" style="border-style:solid;"></div>
+
+<br>
+<input id="anynumberid" type="number" min="570" max="2023" required>
+<button onclick="myFunction()">OK</button>
+<script>
+function myFunction() {
+const my_input = document.getElementById("anynumberid");
+const my_notif = document.getElementById("notif");
+if (!my_input.checkValidity()) {
+my_notif.innerHTML = my_input.validationMessage;
+} else {
+my_notif.innerHTML = "Input OK";
+}
+}
+</script>
+</body>
+</html>

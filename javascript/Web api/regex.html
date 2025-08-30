@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {
+border-style: solid; border-color: black;
+height: 2rem; width: 20rem;
+text-align: center;
+}
+</style>
+<body>
+<h2>JavaScript Regular Expressions</h2>
+<div id="notif"></div>
+<p>Input a valid email address or a BD mobile number</p>
+<label for="email_mobile"></label>
+<input type="text" id="email_mobile"><br><br>
+<button type="button" onclick="my_checkValidity();">Test validity</button>
+<script>
+function my_checkValidity() {
+let text = document.getElementById("email_mobile").value;
+let my_notif = document.getElementById("notif");
+let mobile = /^\+?(88)?0?1[3456789][0-9]{8}\b/i;
+let email = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+let valid_mobile = text.match(mobile);
+let valid_email = text.match(email);
+if(valid_mobile){
+my_notif.innerHTML = "Valid mobile: " + valid_mobile;
+my_notif.style.backgroundColor = "lightgreen";
+}else if(valid_email){
+my_notif.innerHTML = "Valid email: " + valid_email;
+my_notif.style.backgroundColor = "lightgreen";
+}else{
+my_notif.innerHTML = "Not valid!";
+my_notif.style.backgroundColor = "red";
+}
+}
+</script>
+</body>
+</html>

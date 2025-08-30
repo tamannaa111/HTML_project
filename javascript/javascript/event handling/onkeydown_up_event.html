@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div{
+background-color:black; height:10rem; width:20rem;
+text-align:center; font-size: 4rem; color:white;
+}
+</style>
+</head>
+<body>
+<h1>JS captures keydown / keyup event</h1>
+<div id="demo">Type in the input box</div><br>
+<input type="textarea" onkeydown="keydownfunction();"
+onkeyup="keyupfunction();">
+<script>
+const demo_div = document.getElementById("demo");
+function keydownfunction() {
+demo_div.style.backgroundColor = "red";
+demo_div.innerHTML = "Key down!";
+demo_div.style.color="black";
+}
+function keyupfunction() {
+demo_div.style.backgroundColor = "blue";
+demo_div.innerHTML = "Key up!";
+demo_div.style.color="white";
+}
+</script>
+</body>
+</html>

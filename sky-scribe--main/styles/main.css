@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: theme-font;
+    src: url("../Assets/fonts/Quicksand-Medium.ttf");
+  }
+  
+  body {
+    font-family: theme-font, Arial, sans-serif;
+    background-color: #f5f8fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+  }
+  
+  /* Main container */
+  .main-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dashboard Styling */
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Create New User Form */
+  .create-new-user form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .create-new-user input[type="text"],
+  .create-new-user input[type="button"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  .create-new-user input[type="text"] {
+    background-color: #f1f5f9;
+  }
+  
+  .create-new-user input[type="text"]:focus {
+    border-color: #dc775e;
+  }
+  
+  .create-new-user input[type="button"] {
+    background-color: #dc775e;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .create-new-user input[type="button"]:hover {
+    background-color: #dc775e;
+  }
+  
+  /* Users Management */
+  .users-management {
+    padding: 15px;
+    background-color: #f9fbfd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .users-container {
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f5f9;
+    border-radius: 5px;
+  }
+  
+  .user .information {
+    font-size: 0.9em;
+  }
+  
+  .user .action .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #edit-user-btn,
+  #delete-user-btn {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+  
+  #edit-user-btn {
+    background-color: #f5a623;
+    color: #fff;
+  }
+  
+  #edit-user-btn:hover {
+    background-color: #e6951c;
+  }
+  
+  #delete-user-btn {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  #delete-user-btn:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Modal */
+
+/* Delete Modal */
+.modal-container{
+    /* For Make Modal Hide change display to 'none' */
+    display:none;
+    /* ------------- */
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backdrop-filter: Blur(4px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container > .delete-user-modal{
+    background-color: #fff;
+    width: 300px;
+    height: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    animation: slide-top 1s alternate;
+    /* Change Display to Flex to show */
+    display: none;
+    /* ------------------------------- */
+    
+}
+
+@keyframes slide-top {
+    0%{
+        display: none;
+        opacity: 0;
+        transform: scale(0.9)
+    }
+    100%{
+        display: flex;
+        opacity: 1;
+        transform: scale(1)
+    }
+    
+}
+.delete-user-modal > p{
+    font-size: 14px;
+}
+.delete-user-modal > p > .username{
+    color: crimson;
+    text-transform: lowercase;
+    cursor: pointer;
+    user-select: none;
+}
+.modal-container > .delete-user-modal > .action-btn{
+    width: 250px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.modal-container > .delete-user-modal > .action-btn > input[type=button]{
+    width: 120px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.modal-container > .delete-user-modal > .action-btn > #yes{
+    background-color: crimson;
+    color: #fff;
+}
+.modal-container > .delete-user-modal > .action-btn > #no{
+    background-color: white;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+.modal-container > .delete-user-modal > .action-btn > input[type=button]:hover{
+    cursor: pointer;
+    filter: brightness(95%);
+}
+
+/* Edit user detail Modal */
+.modal-container > .edit-user-modal{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    animation: slide-top 1s alternate;
+    padding: 4px;
+    /* Change Display to Flex to show */
+    display: none;
+
+}
+.modal-container > .edit-user-modal > p{
+    color: rgba(0, 0, 0, 0.8);
+    font-family: theme-font;
+    width: 250px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    user-select: none;
+}
+.modal-container > .edit-user-modal > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 250px;
+    height: 200px;
+
+}
+
+.modal-container > .edit-user-modal > form > input[type=text]{
+    width: 230px;
+    height: 40px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 230, 230, 0.6);
+    border-radius: 4px;
+    font-family: theme-font;
+    user-select: none;
+}
+.modal-container > .edit-user-modal > form > input[type=text]:focus{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal-container > .edit-user-modal > .action-btn{
+    width: 250px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.modal-container > .edit-user-modal > .action-btn > input[type=button]{
+    width: 100px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    transition: 0.2s;
+    font-family: theme-font;
+    text-transform: capitalize;
+    transition: 0.1s;
+
+
+}
+
+.modal-container > .edit-user-modal > .action-btn > #save{
+    background-color: forestgreen;
+    color: #fff;
+}
+.modal-container > .edit-user-modal > .action-btn > #close{
+    background-color: white;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+.modal-container > .edit-user-modal > .action-btn > input[type=button]:hover{
+    cursor: pointer;
+    filter: brightness(95%);
+}
+
+.logout-button {
+  background-color: #d57659;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block; /* Allows centering */
+  margin: 0 auto; /* Centers the button */
+  margin-top: 16px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration Form</title>
+  <style>
+    .error { color: red; font-size: 14px; }
+    input { margin-bottom: 10px; display: block; }
+  </style>
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+<form id="registrationForm" onsubmit="return validateForm()">
+  
+  <label>Name:</label>
+  <input type="text" id="name" />
+  <span class="error" id="nameError"></span>
+
+  <label>Email:</label>
+  <input type="text" id="email" />
+  <span class="error" id="emailError"></span>
+
+  <label>Password:</label>
+  <input type="password" id="password" />
+  <span class="error" id="passwordError"></span>
+
+  <label>Confirm Password:</label>
+  <input type="password" id="confirmPassword" />
+  <span class="error" id="confirmPasswordError"></span>
+
+  <button type="submit">Register</button>
+</form>
+
+<script>
+function validateForm() {
+  // Get input values
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  // Get error message spans
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+  // Clear previous error messages
+  nameError.textContent = "";
+  emailError.textContent = "";
+  passwordError.textContent = "";
+  confirmPasswordError.textContent = "";
+
+  let valid = true;
+
+  // Name validation
+  if (name.length < 3) {
+    nameError.textContent = "Name must be at least 3 characters long.";
+    valid = false;
+  }
+
+  // Email validation using regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    emailError.textContent = "Please enter a valid email address.";
+    valid = false;
+  }
+
+  // Password validation
+  if (password.length < 6) {
+    passwordError.textContent = "Password must be at least 6 characters long.";
+    valid = false;
+  }
+
+  // Confirm password validation
+  if (password !== confirmPassword) {
+    confirmPasswordError.textContent = "Passwords do not match.";
+    valid = false;
+  }
+
+  return valid; // Prevent form submission if not valid
+}
+</script>
+
+</body>
+</html>

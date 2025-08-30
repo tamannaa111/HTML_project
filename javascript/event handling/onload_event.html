@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body onload="popup();">
+<h1>JS works at onload event</h1>
+<div id="demo" style="background-color:red; height:10rem;
+width:20rem;"></div><br>
+<script>
+function popup() {
+window.alert("DOM is loaded! Now, the div will become blue.");
+document.getElementById("demo").style.backgroundColor = "blue";
+}
+</script>
+</body>
+</html>

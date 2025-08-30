@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+border-color: black; border-style: solid; margin-bottom: 1rem;
+height: 5rem; width: 20rem;
+text-align: center; font-size: 2rem; color: black;
+}
+</style>
+</head>
+<body>
+<h1>Array Handling by JS</h1>
+<div id="div_show"></div><br>
+<input type="number" name="anynumber" id="anynumber"><span> </span>
+<button onclick="my_push(document.getElementById('anynumber').value);">
+Push</button>
+<button onclick="my_pop();">Pop</button><br><br>
+<button onclick="my_show();">Show array</button><br>
+<script>
+points = new Array(); // this is an empty array
+div_show = document.getElementById("div_show");
+number_input = document.getElementById('anynumber');
+function my_push(number) {
+if (number != "") {
+points.push(number);
+div_show.innerHTML = "Pushed: " + number;
+}else
+div_show.innerHTML = "Nothing to push";
+number_input.value ="";
+}
+function my_pop() { div_show.innerHTML = "Poped: " + points.pop(); }
+function my_show() {
+if(points.length !=0){
+div_show.innerHTML = points.toString();;
+}else{
+div_show.innerHTML = "Empty";
+}
+}
+</script>
+</body>
+</html>
